@@ -3,20 +3,19 @@
 
 ##This function creates a special "matrix" object that can cache its inverse.
 ## This function creates a cache set up for a given matrix x. It returns 4 functions which can be called
-## 1. set: replaces the starting matrix and sets the cached xinv to NULL
-## 2. get: returns the matrix x
-## 3. setInverse: sets the inverse
-## 4. getInverse: returns the inverse
-  
 makeCacheMatrix <- function(x = matrix()) {
 
     xinv <- NULL
+    # replaces the starting matrix and sets the cached xinv to NULL
     set <- function(y) {
         x <<- y
         xinv <<- NULL
     }
+    # get: returns the matrix x
     get <- function() x
+    #sets the inverse
     setInverse <- function(inv) xinv <<- inv
+    # return the inverse
     getInverse <- function() xinv
     list(set = set, get = get,
          setInverse = setInverse,
